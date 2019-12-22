@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.cadebe</groupId>
     <artifactId>maven-nexus-release-demo</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>maven-nexus-release-demo</name>
     <description>Maven-Nexus-release demo project for Spring Boot</description>
 
@@ -67,7 +67,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/Carla-de-Beer/maven-nexus-release.git</developerConnection>
         <url>https://github.com/Carla-de-Beer/maven-nexus-release</url>
-        <tag>maven-nexus-release-demo-0.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
