@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.cadebe</groupId>
+    <artifactId>maven-nexus-demo</artifactId>
+    <version>0.0.1</version>
+    <name>nexus-demo</name>
+    <description>Maven-Nexus-release demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <project.scm.id>github</project.scm.id>
+        <TEST_HOST>localhost</TEST_HOST>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>nexus-distro</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>nexus-snapshot</id>
+                    <name>nexus-snapshot</name>
+                    <url>http://localhost:8081/repository/nexus-snapshot/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>nexus-release</id>
+                    <name>nexus-release</name>
+                    <url>http://localhost:8081/repository/nexus-release/</url>
+                </repository>
+            </distributionManagement>
+            <properties>
+                <TEST_HOST>test.example.com</TEST_HOST>
+            </properties>
+        </profile>
+    </profiles>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/Carla-de-Beer/maven-nexus-release.git</developerConnection>
+        <url>https://www.udemy.com/course/apache-maven-beginner-to-guru/learn/lecture/13405176?start=0#overview</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <environmentVariables>
+                        <TEST_HOST>${TEST_HOST}</TEST_HOST>
+                    </environmentVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
