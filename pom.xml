@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cadebe</groupId>
-    <artifactId>maven-nexus-demo</artifactId>
-    <version>0.0.1</version>
-    <name>nexus-demo</name>
+    <artifactId>maven-nexus-release-demo</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+    <name>maven-nexus-release-demo</name>
     <description>Maven-Nexus-release demo project for Spring Boot</description>
 
     <properties>
@@ -67,7 +67,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/Carla-de-Beer/maven-nexus-release.git</developerConnection>
-        <url>https://www.udemy.com/course/apache-maven-beginner-to-guru/learn/lecture/13405176?start=0#overview</url>
+        <url>https://github.com/Carla-de-Beer/maven-nexus-release</url>
         <tag>HEAD</tag>
     </scm>
 
